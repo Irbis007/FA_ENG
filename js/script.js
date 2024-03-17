@@ -5,7 +5,6 @@ const swiper = new Swiper(".swiper", {
   loop: true,
   slidesPerView: 1,
   spaceBetween: 24,
-  autoHeight: true,
   speed: 1000,
   breakpoints: {
     768: {
@@ -17,18 +16,3 @@ const swiper = new Swiper(".swiper", {
     clickable: true,
   },
 });
-
-if (window.innerWidth < 768) {
-  const swiper2 = new Swiper(".swiper-2", {
-    direction: "horizontal",
-    loop: true,
-    slidesPerView: 1,
-    spaceBetween: 24,
-    autoHeight: true,
-
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
-}

@@ -35,7 +35,7 @@ footer::before {
   color: #ffffff;
   font-family: "Helvetica Neue", sans-serif;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 0.7rem;
   letter-spacing: 0.26rem;
   text-transform: uppercase;
   opacity: 0.5;
@@ -51,7 +51,7 @@ footer::after {
   color: #ffffff;
   font-family: "Helvetica Neue", sans-serif;
   font-weight: 900;
-  font-size: 18px;
+  font-size: .9rem;
 }
 
 .title {
@@ -81,7 +81,7 @@ footer::after {
   border-radius: 6px;
 
   font-family: "Pobeda Bold", sans-serif;
-  font-size: 32px;
+  font-size: 1.6rem;
   letter-spacing: -0.04rem;
   text-transform: uppercase;
   transition: all 0.2s;
@@ -106,8 +106,8 @@ footer::after {
   position: absolute;
   width: 391px;
   height: 0px;
-  border: 29px solid #fff;
-  filter: blur(162px);
+  border: 22px solid #fff;
+  filter: blur(112px);
   transform: rotate(45deg);
   opacity: 0.8;
 }
@@ -119,27 +119,28 @@ footer::after {
 .deckor-1 {
   opacity: 0;
   left: 17px;
-  top: -9px;
-  animation: transparentAnim 1.3s 0.5s;
+  top: 110px;
+  animation: transparentAnim 1.8s 0.5s;
   z-index: 1000;
   animation-fill-mode: forwards;
 }
 
 .deckor-2 {
-  left: 856px;
-  top: -9px;
-  animation: deckor2Anim 0.8s 0.4s;
+  left: 47%;
+  top: 105px;
+  width: 33%;
+  animation: deckor2Anim 2s 0.4s forwards;
+  transform: translate(0%,-830%) rotate(45deg);
   z-index: 1000;
-  transform: rotate(45);
 }
 
 .deckor-3 {
   opacity: 0;
   width: 674px;
-  top: 82%;
+  top: 110%;
   right: -104px;
 
-  animation: transparentAnim 1.3s 0.5s;
+  animation: transparentAnim 1.8s 0.5s;
   z-index: 1000;
   animation-fill-mode: forwards;
 }
@@ -205,13 +206,16 @@ footer::after {
 
 .intro-graph-1{
   top: 27%;
-  left: 12px;
+  left: 40px;
 }
-@media (max-width: 1450px) {
-  .deckor-2 {
-    left: 400px;
-  }
+
+.stars{
+  position: absolute;
+  left: 40%;
+  top: 0;
 }
+
+
 
 @media (max-width: 991px) {
   .deckor-2,
@@ -228,6 +232,9 @@ footer::after {
     width: 383px;
     top: 304px;
     right: -84px;
+  }
+  .stars{
+    display: none;
   }
 }
 
@@ -248,8 +255,7 @@ footer::after {
     filter: blur(66px);
   }
   .intro-graph-1{
-    top: 200px;
-    left: 12px;
+    left: 40px;
   }
 }
 
@@ -288,15 +294,16 @@ footer::after {
 }
 
 .intro__aside {
-  transform: translateX(-200%);
+  transform: translateX(-30%);
+  opacity: 0;
   z-index: 1000;
-  animation: asideAnim 0.8s 0.4s forwards;
+  animation: asideAnim 1.5s 0.4s forwards;
 }
 
 .intro::after {
-  transform: translateX(200%);
+  transform: translateX(100%);
   z-index: 1000;
-  animation: introCircleAnim 1s forwards;
+  animation: introCircleAnim 2s forwards;
 }
 
 
@@ -308,7 +315,7 @@ footer::after {
   width: 200px;
 
   transform: translate(-50%, -50%);
-  animation: logoAnim 1s 1s forwards;
+  animation: logoAnim 2.3s 1.5s forwards;
   overflow: hidden;
   z-index: 1000000000;
 }
@@ -319,7 +326,7 @@ footer::after {
 
 .header .logo .logo__wrapper {
   transform: translateY(100%);
-  animation: logoWrapperAnim 1s forwards;
+  animation: logoWrapperAnim 1.5s forwards;
 }
 
 .header .container{
@@ -340,16 +347,18 @@ footer::after {
 
 @keyframes asideAnim {
   from {
-    transform: translateX(-200%);
+    transform: translateX(-30%);
+    opacity: 0;
   }
   to {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
 @keyframes introCircleAnim {
   from {
-    transform: translateX(200%);
+    transform: translateX(100%);
   }
   to {
     transform: translateX(0);
@@ -367,41 +376,47 @@ footer::after {
 
 @keyframes deckor2Anim {
   from {
-    transform: translateY(-330%) rotate(45deg);
+    transform: translate(0%,-830%) rotate(45deg);
   }
   to {
-    transform: translateY(0) rotate(45deg);
+    transform: translate(0) rotate(45deg);
   }
 }
 
 @keyframes logoAnim {
+  0%{
+    width: 200px;
+  }
   90%{
     transform: translate(0);
-    left: 0;
+    left: 8.7%;
     top: 0;
-    width: 120px;
   }
   100%{
-    position: relative;
     transform: translate(0);
-    left: 0;
+    left: 8.7%;
     top: 0;
     width: 120px;
   }
 }
 
 @media (max-width: 991px) {
+  .header .logo{
+    width: 120px;
+    top: 250%;
+  }
   @keyframes logoAnim {
+    0%{
+      width: 120px;
+    }
     90%{
       transform: translate(0);
-      left: 0;
+      left: 8.7%;
       top: 0;
-      width: 72px;
     }
     100%{
-      position: relative;
       transform: translate(0);
-      left: 0;
+      left: 8.7%;
       top: 0;
       width: 72px;
     }
@@ -409,17 +424,35 @@ footer::after {
 }
 
 @media (max-width: 767px) {
+  .header .logo{
+    width: 100px;
+  }
+  .deckor-1{
+    display: block;
+    width: 132px;
+    top: 35px;
+    filter: blur(50px);
+  }
+  .deckor-3{
+    display: block;
+    width: 220px;
+    filter: blur(50px);
+    right: -58px;
+    top: 64%;
+  }
   @keyframes logoAnim {
+    0%{
+      width: 100px;
+    }
     90%{
       transform: translate(0);
-      left: 0;
+      left: 8.7%;
       top: 0;
       width: 54px;
     }
     100%{
-      position: relative;
       transform: translate(0);
-      left: 0;
+      left: 8.7%;
       top: 0;
       width: 54px;
     }
@@ -453,7 +486,7 @@ footer::after {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  filter: drop-shadow(0 0 10px #adbbff);
+  filter: drop-shadow(0 0 10px #ECC06A);
   animation: card_line-anim__iu92O 12s linear infinite,card_line-opacity-loop__KzXmR 3s linear infinite;
 }
 
@@ -463,13 +496,18 @@ footer::after {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: conic-gradient(from calc(var(--angle) + 396deg), transparent 0, #adbbff 20%, transparent 25%);
+  background: conic-gradient(from calc(var(--angle) + 396deg), transparent 0, #ECC06A 20%, transparent 25%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: xor;
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   animation: inherit;
+}
+
+
+.item:nth-child(2) .card-anim::before{
+  background: conic-gradient(from calc(var(--angle) - 140deg), transparent 0, #ECC06A 20%, transparent 25%);
 }
 
 

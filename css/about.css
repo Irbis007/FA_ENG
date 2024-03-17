@@ -4,7 +4,7 @@
 }
 
 .about::before{
-  content: '[Обо мне]';
+  content: '[About me]';
 }
 
 .about .container{
@@ -22,7 +22,7 @@
 
 .about .about__title {
   font-family: "Pobeda Bold", sans-serif;
-  font-size: 64px;
+  font-size: 3.2rem;
   line-height: 120%;
   letter-spacing: -0.04em;
 }
@@ -32,7 +32,7 @@
   margin-top: 52px;
   font-family: "Helvetica Neue", sans-serif;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 1rem;
   line-height: 160%;
 }
 
@@ -55,9 +55,29 @@
   margin-top: 24px;
   font-family: 'Helvetica Neue', sans-serif;
   font-weight: 300;
-  font-size: 18px;
+  font-size: .9rem;
   line-height: 160%;
 }
+
+
+.about .about__img{
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.about .about__img img{
+  width: 100%;
+}
+
+.about__body{
+  position: relative;
+  z-index: 10;
+}
+
 
 @media (max-width: 991px) {
   .about .container{
@@ -68,10 +88,10 @@
     margin-left: 0;
   }
   .about .about__title {
-    font-size: 36px;
+    font-size: 2.2rem;
   }
   .about .about__descr{
-    font-size: 16px;
+    font-size: 1rem;
     max-width: 466px;
   }
   .about .about__cards{
@@ -87,16 +107,29 @@
   .about .about__cards .item__descr{
     margin-top: 0;
   }
+  .about .about__img{
+    left: unset;
+    right: 0px;
+  }
+  .about .about__descr{
+    margin-top: 20px;
+  }
+  .about .about__cards{
+    margin: 25px 0 0 0 ;
+  }
 }
 
 
 @media (max-width: 767px) {
   .about .container{
-    padding-top: 381px;
+    padding-top: 431px;
+  }
+  .about .about__body{
+    width: 100%;
   }
   .about .about__title{
     text-align: center;
-    font-size: 27px;
+    font-size: 1.9rem;
   }
   .about .about__descr{
     margin: 0 auto;
@@ -106,5 +139,15 @@
   .about .about__cards{
     margin: 0 auto;
     margin-top: 32px;
+  }
+  .about .about__img{
+    width: 70%;
+    top: -30px;
+    left:  unset;
+    right:  50%;
+    transform: translateX(50%);
+  }
+  .about .about__img img{
+    width: 100%;
   }
 }

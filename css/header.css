@@ -3,6 +3,7 @@
 .header .container{
   padding: 0 6.3% 0 8.7%;
   max-width: unset;
+  height: 125px;
 }
 
 .header .container, .footer .footer__body{
@@ -14,6 +15,9 @@
 }
 
 
+.header .header__nav{
+  padding-left: 174px;
+}
 
 .header .header__nav, .footer .footer__nav{
   display: flex;
@@ -58,14 +62,17 @@
 
   color: #fff;
   font-family: 'Pobeda Bold', sans-serif;
-  font-size: 22px;
+  font-size: 1.3rem;
   text-transform: uppercase;
   cursor: pointer;
+  transition: all .5s;
   z-index: 10;
 }
 
 .header .header__button .button__tg:hover, .footer .footer__button .button__tg:hover{
-  box-shadow: 0 12px 40px rgba(41, 182, 246, 0.45);
+  box-shadow: 0 12px 44px rgba(41, 182, 246, 0.45);
+  transition: all .5s;
+  filter: drop-shadow(0 0px 0 #0785BE);
 }
 
 .header .header__button .button__tg span, .footer .footer__button .button__tg span{
@@ -95,15 +102,17 @@
 }
 
 .header .header__lang, .footer .footer__lang{
+  position: relative;
   display: flex;
   gap: 21px;
+  z-index: 10;
 }
 
 .header .header__lang .lang, .footer .footer__lang .lang{
   color: #fff;
   font-family: 'Helvetica Neue';
   font-weight: 400;
-  font-size: 20px;
+  font-size: 1rem;
   text-decoration: none;
   transition: all .2s;
 }
@@ -121,8 +130,14 @@
 
 
 @media (max-width: 991px) {
+  .header .container{
+    height: 74px;
+  }
   .header .container, .footer .footer__body{
     gap: 24px;
+  }
+  .header .header__nav{
+    padding-left: 98px;
   }
   .header .logo .logo__wrapper img, .footer .logo  img{
     width: 100%;
@@ -133,7 +148,7 @@
   .header .header__button .button__tg, .footer .footer__button .button__tg{
     width: 156px;
     height: 48px;
-    font-size: 18px;
+    font-size: 1.1rem;
   }
   .header .header__button .button__tg span, .footer .footer__button .button__tg span{
     padding-right: 16px;
@@ -143,18 +158,21 @@
     right: 6px;
   }
   .header .header__lang .lang, .footer .footer__lang .lang{
-    font-size: 14px;
+    font-size: .8rem;
   }
 }
 
 
 @media (max-width: 767px) {
-  .header .logo{
-    width: 54px !important;
+  .header .container{
+    height: 54px;
   }
-  .header .logo .logo__wrapper, .footer .logo{
+  .footer .logo{
     width: 54px ;
     height: 54px;
+  }
+  .header .header__nav{
+    padding-left: 78px;
   }
   .header .header__nav .list, .footer .footer__nav .list{
     flex-wrap: wrap;

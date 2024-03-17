@@ -1,3 +1,5 @@
+
+
 const faqs = document.querySelectorAll(".faq .faq__body .item");
 
 faqs.forEach((item) => {
@@ -12,6 +14,8 @@ faqs.forEach((item) => {
 
 let mainContainer = document.querySelector("body");
 let triggerBlock = document.querySelector(".benefits__slider-target");
+let triggerBlockWrapper = document.querySelector('.benefits__slider')
+let triggerBolckContetn = document.querySelector('.benefits__slider-wrapper')
 
 let scrollPosition = 0;
 let scrollR = triggerBlock.scrollWidth;
@@ -23,10 +27,11 @@ window.addEventListener("wheel", function (e) {
       if (
         window.innerHeight / 2 - triggerBlock.clientHeight / 2 + 20 >= scrollTop &&
         !(triggerBlock.scrollWidth - triggerBlock.clientWidth - 40 < triggerBlock.scrollLeft) &&
-        scrollTop > 0
+        scrollTop > 0 &&
+        triggerBlock.scrollLeft + triggerBlockWrapper.clientWidth <triggerBolckContetn.scrollWidth
       ) {
         mainContainer.classList.add("unscroll");
-        scrollPosition += 40;
+        scrollPosition += 15;
         triggerBlock.scrollLeft = scrollPosition;
       } else {
         mainContainer.classList.remove("unscroll");
@@ -38,7 +43,7 @@ window.addEventListener("wheel", function (e) {
       ) {
         mainContainer.classList.add("unscroll");
 
-        scrollPosition -= 40;
+        scrollPosition -= 15;
         triggerBlock.scrollLeft = scrollPosition;
       } else {
         mainContainer.classList.remove("unscroll");
@@ -46,6 +51,8 @@ window.addEventListener("wheel", function (e) {
     }
   }
 });
+
+
 
 const tabButton = document.querySelectorAll(".products .item__top");
 const tabBody = document.querySelectorAll(".products .item__body");
@@ -60,20 +67,21 @@ tabButton.forEach((item, i) => {
 });
 
 const licenses = document.querySelectorAll(".license__body .item");
+const licensesImg = document.querySelector(".license .overview img");
+const licensesClose = document.querySelector(".license .overview .close");
 
 licenses.forEach((item) => {
   item.addEventListener("click", () => {
-    item.classList.add("active");
-    mainContainer.style.overflow = "hidden";
+    licensesImg.src = item.children[0].src
+    licensesImg.parentElement.classList.add('active')
+    licensesClose.style.left = `calc(50% + ${licensesImg.clientWidth / 2}px + 40px)`
   });
 });
 
-document.addEventListener("click", (e) => {
-  if (e.target.closest(".license") && e.target.tagName != "IMG") {
-    removeActive(licenses);
-    mainContainer.style.overflow = "auto";
-  }
-});
+licensesClose.addEventListener('click', () =>{
+  licensesImg.parentElement.classList.remove('active')
+})
+
 
 function removeActive(list) {
   list.forEach((item) => {
@@ -82,13 +90,20 @@ function removeActive(list) {
 }
 
 const scrollItems = document.querySelectorAll(".scroll-item");
+const scrollGroup = document.querySelectorAll('.scroll-group');
+
+
 
 const scrollAnimation = () => {
-  let windowCenter = window.innerHeight / 2 + window.scrollY;
-  scrollItems.forEach((el) => {
-    let scrollOffset = el.offsetTop + el.offsetHeight / .3 ;
-    if (window.innerHeight / 1.4 >=  el.getBoundingClientRect().y) {
-      el.classList.add("animation-class");
+  scrollItems.forEach((el, i) => {
+    if (window.innerHeight / 1.4 >=  el.getBoundingClientRect().y ) {
+      if(el.classList.contains('scroll-group')){
+        scrollItems[i].classList.add('animation-class');
+        scrollItems[i+2].classList.add('animation-class');
+        scrollItems[i+3].classList.add('animation-class');
+      } else{
+        el.classList.add("animation-class");
+      }
     }
   });
 };
@@ -99,18 +114,3 @@ window.addEventListener("scroll", () => {
   scrollAnimation();
 });
 
-const animation = lottie.loadAnimation({
-  container: document.getElementById("lottie-animation"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "./anim.json",
-});
-
-const animation2 = lottie.loadAnimation({
-  container: document.getElementById("lottie-animation2"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "./main.json",
-});

@@ -24,7 +24,7 @@
 
 footer.footer::before {
   top: 130px;
-  content: "[Партенры]";
+  content: "[Parteners]";
 }
 
 footer.footer::after {
