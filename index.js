@@ -12,45 +12,45 @@ faqs.forEach((item) => {
   });
 });
 
-let mainContainer = document.querySelector("body");
-let triggerBlock = document.querySelector(".benefits__slider-target");
-let triggerBlockWrapper = document.querySelector('.benefits__slider')
-let triggerBolckContetn = document.querySelector('.benefits__slider-wrapper')
+// let mainContainer = document.querySelector("body");
+// let triggerBlock = document.querySelector(".benefits__slider-target");
+// let triggerBlockWrapper = document.querySelector('.benefits__slider')
+// let triggerBolckContetn = document.querySelector('.benefits__slider-wrapper')
 
-let scrollPosition = 0;
-let scrollR = triggerBlock.scrollWidth;
-window.addEventListener("wheel", function (e) {
-  let scrollTop = triggerBlock.getBoundingClientRect().y;
+// let scrollPosition = 0;
+// let scrollR = triggerBlock.scrollWidth;
+// window.addEventListener("wheel", function (e) {
+//   let scrollTop = triggerBlock.getBoundingClientRect().y;
 
-  if (triggerBlock && window.innerWidth > 991) {
-    if (e.deltaY > 0) {
-      if (
-        window.innerHeight / 2 - triggerBlock.clientHeight / 2 + 20 >= scrollTop &&
-        !(triggerBlock.scrollWidth - triggerBlock.clientWidth - 40 < triggerBlock.scrollLeft) &&
-        scrollTop > 0 &&
-        triggerBlock.scrollLeft + triggerBlockWrapper.clientWidth <triggerBolckContetn.scrollWidth
-      ) {
-        mainContainer.classList.add("unscroll");
-        scrollPosition += 15;
-        triggerBlock.scrollLeft = scrollPosition;
-      } else {
-        mainContainer.classList.remove("unscroll");
-      }
-    } else if (e.deltaY < 0) {
-      if (
-        window.innerHeight / 2 - triggerBlock.clientHeight / 2 - 20 <= scrollTop &&
-        scrollPosition >= 0
-      ) {
-        mainContainer.classList.add("unscroll");
+//   if (triggerBlock && window.innerWidth > 991) {
+//     if (e.deltaY > 0) {
+//       if (
+//         window.innerHeight / 2 - triggerBlock.clientHeight / 2 + 20 >= scrollTop &&
+//         !(triggerBlock.scrollWidth - triggerBlock.clientWidth - 40 < triggerBlock.scrollLeft) &&
+//         scrollTop > 0 &&
+//         triggerBlock.scrollLeft + triggerBlockWrapper.clientWidth <triggerBolckContetn.scrollWidth
+//       ) {
+//         mainContainer.classList.add("unscroll");
+//         scrollPosition += 15;
+//         triggerBlock.scrollLeft = scrollPosition;
+//       } else {
+//         mainContainer.classList.remove("unscroll");
+//       }
+//     } else if (e.deltaY < 0) {
+//       if (
+//         window.innerHeight / 2 - triggerBlock.clientHeight / 2 - 20 <= scrollTop &&
+//         scrollPosition >= 0
+//       ) {
+//         mainContainer.classList.add("unscroll");
 
-        scrollPosition -= 15;
-        triggerBlock.scrollLeft = scrollPosition;
-      } else {
-        mainContainer.classList.remove("unscroll");
-      }
-    }
-  }
-});
+//         scrollPosition -= 15;
+//         triggerBlock.scrollLeft = scrollPosition;
+//       } else {
+//         mainContainer.classList.remove("unscroll");
+//       }
+//     }
+//   }
+// });
 
 
 
