@@ -62,4 +62,8 @@ body > .bg img{
 
 @media (max-width: 320px) {
 }
- 
+
+
+.preloader img{
+  display: none;
+}
